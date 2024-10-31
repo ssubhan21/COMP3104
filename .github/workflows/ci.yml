@@ -26,7 +26,8 @@ jobs:
       - name: Run test
         run: npm run test
 
-      - name: Deploy to GitHub Pages
-        run: npm run deploy 
-        env:
-           GITHUB_TOKEN: ${{ secrets.COMP3104_TOKEN }}
+       name: Deploy to GitHub Pages
+     uses: peaceiris/actions-gh-pages@v4
+     with:
+       github_token: ${{ secrets.COMP3104_GITHUB_TOKEN }}
+       publish_dir: ./build
